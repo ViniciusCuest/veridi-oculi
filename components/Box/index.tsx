@@ -1,3 +1,4 @@
+import { Colors } from '@/constants/Colors';
 import { StyleProp, View, ViewStyle } from 'react-native';
 
 export function Box({
@@ -10,8 +11,8 @@ export function Box({
     extra?: React.ReactElement;
 }) {
     return (
-        <View style={{ backgroundColor: '#fff', borderRadius: 20 }}>
-            <View style={[{ padding: 16, backgroundColor: '#ffffff' }, style]}>
+        <View style={{ backgroundColor: Colors.background, borderRadius: 20 }}>
+            <View style={[{ padding: 16, borderRadius: 20 }, style]}>
                 {children}
             </View>
             {extra && (
@@ -23,7 +24,7 @@ export function Box({
                         flexDirection: 'row',
                         paddingHorizontal: 16,
                         paddingVertical: 24,
-                        backgroundColor: '#566F52',
+                        backgroundColor: Colors.green900,
                         alignItems: 'center',
                         justifyContent: 'space-between',
                     }}

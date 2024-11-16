@@ -1,28 +1,26 @@
-import {
-    DarkTheme,
-    DefaultTheme,
-    ThemeProvider,
-} from '@react-navigation/native';
+import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { Feather, Ionicons } from '@expo/vector-icons';
-import { Image, View } from 'react-native';
-import Icon from '@/assets/images/veridi.png'
+import { Ionicons } from '@expo/vector-icons';
+import { Image, Platform, Share } from 'react-native';
+import { Colors } from '@/constants/Colors';
+import {
+    Montserrat_500Medium,
+    Montserrat_700Bold,
+} from '@expo-google-fonts/montserrat';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-    const colorScheme = useColorScheme();
+    const { replace } = useRouter();
     const [loaded] = useFonts({
-        SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+        mont400: Montserrat_500Medium,
+        mont700: Montserrat_700Bold,
     });
 
- 
     useEffect(() => {
         if (loaded) {
             SplashScreen.hideAsync();
@@ -47,17 +45,25 @@ export default function RootLayout() {
                     options={{
                         headerShown: true,
                         headerStyle: {
-                            backgroundColor: '#ECECEC',
+                            backgroundColor: Colors.backgroundSecondary,
                         },
-                        headerLeft: () => (
-                            <Ionicons
-                                name='settings-outline'
-                                size={28}
-                                color='#566F52B2'
+                        headerLeft:
+                            Platform.OS === 'ios'
+                                ? () => (
+                                      <Ionicons
+                                          name='settings-outline'
+                                          size={28}
+                                          color='#566F52B2'
+                                          onPress={() => replace('/login')}
+                                      />
+                                  )
+                                : undefined,
+                        headerTitle: () => (
+                            <Image
+                                style={{ width: 50, height: 50 }}
+                                source={require('@/assets/images/veridi.png')}
                             />
                         ),
-                        headerTitle: () =>
-                            <Image style={{ width: 50, height: 50 }} source={require('@/assets/images/veridi.png')} />,
                         headerRight: () => (
                             <Ionicons
                                 name='person-circle-outline'
@@ -67,8 +73,40 @@ export default function RootLayout() {
                         ),
                     }}
                 />
+                <Stack.Screen
+                    name='new-analysis'
+                    options={{
+                        title: '',
+                        headerTintColor: Colors.green,
+                        headerStyle: {
+                            backgroundColor: Colors.backgroundSecondary,
+                        },
+                        headerTitle: () => (
+                            <Image
+                                style={{ width: 50, height: 50 }}
+                                source={require('@/assets/images/veridi.png')}
+                            />
+                        ),
+                    }}
+                />
+                <Stack.Screen
+                    name='report'
+                    options={{
+                        title: '',
+                        headerTintColor: Colors.green,
+                        headerStyle: {
+                            backgroundColor: Colors.backgroundSecondary,
+                        },
+                        headerTitle: () => (
+                            <Image
+                                style={{ width: 50, height: 50 }}
+                                source={require('@/assets/images/veridi.png')}
+                            />
+                        ),
+                    }}
+                />
                 <Stack.Screen name='+not-found' />
             </Stack>
-        </ThemeProvider >
+        </ThemeProvider>
     );
 }

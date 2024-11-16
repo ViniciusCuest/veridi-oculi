@@ -4,7 +4,8 @@ import { Background } from '@/components/Background';
 import { Box } from '@/components/Box';
 import { CustomText } from '@/components/Text';
 import { Button } from '@/components/Button';
-import { useNavigation, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
+import { Colors } from '@/constants/Colors';
 export default function HomeScreen() {
     const { replace } = useRouter();
     return (
@@ -21,12 +22,12 @@ export default function HomeScreen() {
                         <CustomText
                             text='Esqueci a senha'
                             type='small'
-                            style={{ color: 'white' }}
+                            style={{ color: Colors.text }}
                         />
                         <CustomText
                             type='small'
                             text='Não tenho cadastro'
-                            style={{ color: 'white' }}
+                            style={{ color: Colors.text }}
                         />
                     </>
                 }
@@ -34,7 +35,7 @@ export default function HomeScreen() {
                 <CustomText
                     text='Acesse sua conta'
                     type='extra-large'
-                    style={{ color: '#566F52' }}
+                    style={{ color: Colors.textSecondary }}
                 />
                 <InputText placeholder='login' />
                 <InputText
@@ -59,16 +60,18 @@ export default function HomeScreen() {
                     <CustomText
                         text='ou'
                         type='large'
-                        style={{ color: '#566F52' }}
+                        style={{ color: Colors.textSecondary }}
                     />
                     <Button
                         title={'Continuar com Google'}
                         textSize={'large'}
+                        onPress={() => {}}
                     />
                     <Button
                         title={'Continuar com Facebook'}
                         textSize={'large'}
-                        style={{ color: 'white' }}
+                        onPress={() => {}}
+                        //style={{ color: Colors.text }}
                     />
                 </View>
             </Box>

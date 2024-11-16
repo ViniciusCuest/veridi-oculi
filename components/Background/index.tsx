@@ -3,7 +3,9 @@ import background from '@/assets/images/back.png';
 export function Background({
     hasImage,
     children,
+    padding = 0,
 }: {
+    padding?: number;
     hasImage?: boolean;
     children: React.ReactElement | React.ReactElement[];
 }) {
@@ -12,13 +14,14 @@ export function Background({
             source={hasImage ? background : undefined}
             resizeMode={'cover'}
             style={{
+                position: 'relative',
                 backgroundColor: '#ECECEC',
                 height: '100%',
                 width: '100%',
                 justifyContent: 'center',
             }}
         >
-            <SafeAreaView style={{ paddingHorizontal: 24 }}>
+            <SafeAreaView style={{ paddingHorizontal: padding }}>
                 {children}
             </SafeAreaView>
         </ImageBackground>

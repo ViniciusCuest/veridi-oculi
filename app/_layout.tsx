@@ -63,7 +63,7 @@ export default function RootLayout() {
                         headerTitle: () => (
                             <Image
                                 style={{ width: 50, height: 50 }}
-                                source={require('@/assets/images/veridi.png')}
+                                source={require('@/assets/images/veridi2.png')}
                             />
                         ),
                         headerRight: () => (
@@ -86,7 +86,7 @@ export default function RootLayout() {
                         headerTitle: () => (
                             <Image
                                 style={{ width: 50, height: 50 }}
-                                source={require('@/assets/images/veridi.png')}
+                                source={require('@/assets/images/veridi2.png')}
                             />
                         ),
                     }}
@@ -102,7 +102,7 @@ export default function RootLayout() {
                         headerTitle: () => (
                             <Image
                                 style={{ width: 50, height: 50 }}
-                                source={require('@/assets/images/veridi.png')}
+                                source={require('@/assets/images/veridi2.png')}
                             />
                         ),
                     }}

@@ -33,7 +33,9 @@ export default function RootLayout() {
 
     return (
         <ThemeProvider value={DefaultTheme}>
-            <Stack initialRouteName='login'>
+            <Stack initialRouteName='login' screenOptions={{
+                headerBackButtonDisplayMode: 'minimal'
+            }}>
                 <Stack.Screen
                     name='login'
                     options={{
@@ -50,13 +52,13 @@ export default function RootLayout() {
                         headerLeft:
                             Platform.OS === 'ios'
                                 ? () => (
-                                      <Ionicons
-                                          name='settings-outline'
-                                          size={28}
-                                          color='#566F52B2'
-                                          onPress={() => replace('/login')}
-                                      />
-                                  )
+                                    <Ionicons
+                                        name='settings-outline'
+                                        size={28}
+                                        color='#566F52B2'
+                                        onPress={() => replace('/login')}
+                                    />
+                                )
                                 : undefined,
                         headerTitle: () => (
                             <Image

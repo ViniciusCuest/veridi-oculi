@@ -3,7 +3,7 @@ import { Box } from '@/components/Box';
 import { ContainerCards } from '@/components/ContainerCards';
 import { CustomText } from '@/components/Text';
 import { Colors } from '@/constants/Colors';
-import { Dimensions, View } from 'react-native';
+import { Dimensions, View, Image } from 'react-native';
 import {
     GestureHandlerRootView,
     ScrollView,
@@ -71,7 +71,8 @@ export default function Report() {
                                 text='Imagem da espécie:'
                                 style={{ fontFamily: 'mont700' }}
                             />
-                            <View
+                            <Image
+                                source={{uri: 'https://www.wikiaves.com.br/wiki/_media/flora:embauba.jpg?w=400&tok=2b5556'}}
                                 style={{
                                     alignItems: 'center',
                                     justifyContent: 'center',
@@ -87,7 +88,8 @@ export default function Report() {
                                 text='Imagem analisada:'
                                 style={{ fontFamily: 'mont700' }}
                             />
-                            <View
+                            <Image  
+                                source={{uri: 'https://s2.glbimg.com/o5kSCaZGmjCOfkR-33lyhPDqJ44=/1200x630/s.glbimg.com/jo/g1/f/original/2016/06/30/embauba-prateada.jpg'}}
                                 style={{
                                     alignItems: 'center',
                                     justifyContent: 'center',

@@ -1,3 +1,4 @@
+import { Colors } from '@/constants/Colors';
 import {
     Feather,
     FontAwesome,
@@ -32,7 +33,7 @@ export function FloatingButton({ onTap }: Props) {
                     height: 80,
                     width: 80,
                     borderRadius: 40,
-                    backgroundColor: 'red',
+                    backgroundColor: Colors.background,
                     alignItems: 'center',
                     justifyContent: 'center',
                 }}

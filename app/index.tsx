@@ -14,7 +14,7 @@ import React from 'react';
 const { height } = Dimensions.get('window');
 
 export default function HomeScreen() {
-    const { push } = useRouter();
+    const { push, replace } = useRouter();
     const onShare = React.useCallback(async (message: string) => {
         try {
             const result = await Share.share({
@@ -106,13 +106,16 @@ export default function HomeScreen() {
                                         </View>
                                     }
                                 >
-                                    <Image
-                                        style={{ borderRadius: 8 }}
-                                        height={160}
-                                        source={{
-                                            uri: 'https://s3-alpha-sig.figma.com/img/3084/0d58/6dcca4a6d1ad1037e1f21dce7300c0ca?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=C39E2yWr2uLUXCY-P~ZtJbdlUjbZasoDpIJ0ayzkfQmCv2~td4dVZgY7D~apCvVvle4R1fhwtWSKqXWNEtz5u33rqxL4E76LRAAb46gd~Iuu-98--jZ6JmIYia2EdEkayefdq8pdnarroiSLp1Eg2LvKLYCUOE34TVxVyxPfZxmpmC1R3MxXhoSI3iNIjxPJUSJGWBqoEEVVkk2B6DRk2uwQgSza-h184Fywe0FCzVQHvE5ENnDqANXZITZk-yi-THxUu6tNeaswEOPATHJB1l9Wl97LoyXhN9QygrCgxvxp7iHZImAWEo1deiUERquTnY08A5~vkOeNXnpBAFy2kQ__',
-                                        }}
-                                    />
+                                    <Pressable onPress={() => push('/report')}>
+                                        <Image
+                                            style={{ borderRadius: 8 }}
+                                            height={160}
+                                            source={{
+                                                uri: 'https://s2.glbimg.com/o5kSCaZGmjCOfkR-33lyhPDqJ44=/1200x630/s.glbimg.com/jo/g1/f/original/2016/06/30/embauba-prateada.jpg'
+                                            }}
+
+                                        />
+                                    </Pressable>
                                     <View
                                         style={{
                                             flexDirection: 'row',
